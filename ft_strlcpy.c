@@ -1,25 +1,31 @@
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	src_l;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mde-alme <mde-alme@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/07 16:22:21 by mde-alme          #+#    #+#             */
+/*   Updated: 2026/11/07 21:34:26 by mde-alme         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	src_l = 0;
-	while (src_l < size - 1)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+{
+	size_t	src_l;
+	size_t	c;
+
+	src_l = ft_strlen((char *)src);
+	if (size == 0)
+		return (src_l);
+	c = 0;
+	while (src[c] && c < size - 1)
 	{
-		dest[src_l] = src[src_l];
-		src_l++;
+		dest[c] = src[c];
+		c++;
 	}
-	src_l = 0;
-	while (src[src_l])
-	{
-		src_l++;
-	}
-	if (size - 1 < src_l)
-	{
-		dest[size - 1] = '\0';
-	}
-	else
-	{
-		dest[src_l] = '\0';
-	}
+	dest[c] = 0;
 	return (src_l);
 }

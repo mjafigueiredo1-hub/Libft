@@ -1,16 +1,32 @@
-void *memcpy(void *dest, const void *src, size_t n)
-{
-    unsigned char *dt;
-    unsigned char *sc;
-    size_t c;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mde-alme <mde-alme@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/07 16:20:48 by mde-alme          #+#    #+#             */
+/*   Updated: 2026/11/07 22:09:41 by mde-alme         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    c = 0;
-    dt = (unsigned char *)dest;
-    sc = (unsigned char *)src;
-    while (c < n)
-    {
-        dt[c] = sc[c];
-        c++;
-    }
-    return (dest);
+#include "libft.h"
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*dt;
+	unsigned char	*sc;
+	size_t			c;
+
+	if (!dest && !src)
+		return (dest);
+	c = 0;
+	dt = (unsigned char *)dest;
+	sc = (unsigned char *)src;
+	while (c < n)
+	{
+		dt[c] = sc[c];
+		c++;
+	}
+	return (dest);
 }
